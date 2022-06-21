@@ -15,3 +15,34 @@ Materials for NgRx course.
 
 NOTE:
 - June 30, 2020: This code was modified to Angular version 9 and NgRx version 9. See the CHANGELOG.md file for details.
+
+### Ngrx Store
+
+* Single container for application state
+* Interact with that state in an immutable way
+* Install the @ngrx/store package
+* Organize application state by feature
+  * State is not created for Module that is not loaded
+  * Feature Module State Composition
+```ts
+// Sub-slice of state
+StoreModule.forFeature('products', {
+  productList: listReducer,
+  productData: dataReducer
+})
+```
+* Name the feature slice with the feature name
+* Initialize the store using:
+```ts
+StoreModule.forRoot(reducer)
+StoreModule.forFeature('feature', featureReducer)
+```
+* Define an action for each event worth tracking
+
+### Dispatching an Action and Subscribing to the Store
+
+* Often done in response to a user action or an operation
+* Inject the store in the constructor
+* Call the dispatch method of the store
+* Pass in the action to dispatch
+* Subscribing to the store often done in the ngOnInit Lifecycle hook
