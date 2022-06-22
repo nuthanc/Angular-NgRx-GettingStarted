@@ -98,3 +98,11 @@ export const loadProductsFailure = createAction(
   props<{ error: string }>()
 );
 ```
+
+### Working with Effects
+
+* ng add @ngrx/effects
+* Build the effect to process that action and dispatch the success and fail actions
+* Initialize the effects module in the root module(ng add does this automatically)
+* Register effects in your feature modules
+* Process the success and failure actions in the reducer
