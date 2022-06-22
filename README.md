@@ -66,3 +66,35 @@ export const getShowProductCode = createSelector(
   state => state.showProductCode
 )
 ```
+
+### Strongly Typing Actions
+
+* Define the appropriate actions
+* Export a constant that call createAction
+* Specify a clear, unique action type string as the 1st argument
+```ts
+export const toggleProductCode = createAction('[Product] Toggle Product Code');
+```
+* Use props to define associated data as needed
+```ts
+export const setCurrentProduct = createAction(
+  '[Product] Set Current Product',
+  props<{ product: Product }>()
+);
+```
+* For complex operation, define multiple actions(Additional success and fail actions)
+```ts
+export const loadProducts = createAction(
+  '[Product] Load'
+);
+
+export const loadProductsSuccess = createAction(
+  '[Product] Load Success',
+  props<{ products: Product[] }>()
+);
+
+export const loadProductsFailure = createAction(
+  '[Product] Load Fail',
+  props<{ error: string }>()
+);
+```
