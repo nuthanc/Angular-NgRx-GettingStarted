@@ -115,3 +115,17 @@ export const loadProductsFailure = createAction(
 * Dispatch an action to kickoff the operation
 * Build the effect to perform the operation and dispatch a success or fail action
 * Process the success and fail actions in the reducer
+
+### Container and Presentational Components
+
+* Container: Product Shell Component
+* Presentational: Product List Component
+* Benefits of Presentational Container Component Patterns
+  * View Performance improvements as it makes using OnPush change detection easier
+  * Separation of concerns
+  * More Reusable(Easier to compose pages from)
+  * Easier testing
+* ChangeDetection OnPush
+  * Skip change detection unless an @Input receives a new value or object reference
+  * DOM Event is raised on the template 
+  * You use an async pipe on the template and it receives a new value
