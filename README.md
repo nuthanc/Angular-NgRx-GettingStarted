@@ -46,3 +46,23 @@ StoreModule.forFeature('feature', featureReducer)
 * Call the dispatch method of the store
 * Pass in the action to dispatch
 * Subscribing to the store often done in the ngOnInit Lifecycle hook
+
+### Strongly Typing State
+
+* Define an interface for each slice of state
+* Compose them for the global application state
+* Use the interfaces to strongly type the state throught the application
+* Initialize initial state in Reducers
+* Build selectors to define reusable state queries
+  * Conceptually similar to stored procedures
+* Define a Feature Selector to return a feature slice of state
+```ts
+const getProductFeatureState = createFeatureSelector<ProductState>('products');
+```
+* Use General selector to return any bit of state from the store by composing selector functions to navigate down the state tree
+```ts
+export const getShowProductCode = createSelector(
+  getProductFeatureState,
+  state => state.showProductCode
+)
+```
