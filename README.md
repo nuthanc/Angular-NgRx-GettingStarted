@@ -129,3 +129,12 @@ export const loadProductsFailure = createAction(
   * Skip change detection unless an @Input receives a new value or object reference
   * DOM Event is raised on the template 
   * You use an async pipe on the template and it receives a new value
+
+### Barrels
+
+* Rollup exports from several ECMAScript modules into a single module
+* Public APIs for feature state modules
+* To use barrels:
+  * Make index.ts file in each state module
+  * Add selectors and state interfaces to index.ts
+  * Re-export other feature state for other modules
